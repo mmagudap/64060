@@ -1,0 +1,32 @@
+---
+title: "64060"
+author: "Mohan Prasad Magudapathi Jayalakshmi"
+date: "2024-02-03"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r}
+Trade <- read.csv("Trade.csv")
+summary(Trade$Value)
+```
+
+```{r}
+table(Trade$Weekday)
+```
+```{r}
+Cumulative <-Trade$Cumulative
+Log_Cumulative<-log(Cumulative)
+```
+
+```{r}
+library(ggplot2)
+ggplot(Trade, aes(x = Value)) +geom_histogram(bins = 20)
+```
+
+```{r}
+ggplot(Trade, aes(x = Cumulative, y = Value, color = Country)) +
+  geom_point()
+```
